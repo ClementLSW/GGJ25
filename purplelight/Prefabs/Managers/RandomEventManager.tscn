@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chg4tw48j8j2q"]
+
+[ext_resource type="Script" path="res://Scripts/RandomEventManager.gd" id="1_wxtj7"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_wxtj7")
+prefabs = [null]
