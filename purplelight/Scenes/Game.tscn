@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjx4uhitviqk"]
+
+[ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
+[ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="2_6mn2o"]
+[ext_resource type="PackedScene" uid="uid://8hibn6tlhgyc" path="res://Scenes/timer.tscn" id="3_uvgru"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wbscx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("2_6mn2o")
+
+[node name="Timer" parent="." instance=ExtResource("3_uvgru")]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 256.0
+offset_top = 896.0
+offset_right = 1664.0
+offset_bottom = 960.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

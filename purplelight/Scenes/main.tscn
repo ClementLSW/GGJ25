@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5dr8txxcj7p5"]
+[gd_scene load_steps=8 format=3 uid="uid://c5dr8txxcj7p5"]
 
 [ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="1_j4o0h"]
+[ext_resource type="Script" path="res://Scripts/btn_start.gd" id="2_m26qf"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="2_t1nea"]
 [ext_resource type="AudioStream" uid="uid://bh05v85hn3o23" path="res://Audio/uxg_c.leow_wk06.wav" id="2_xldcc"]
 [ext_resource type="PackedScene" uid="uid://h7cmiyni163d" path="res://Scenes/settings_panel.tscn" id="4_vq33o"]
@@ -24,7 +25,9 @@ offset_right = 1088.0
 offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 0
+action_mode = 0
 text = "Start"
+script = ExtResource("2_m26qf")
 
 [node name="Btn_Settings" type="Button" parent="."]
 anchors_preset = 12
@@ -46,7 +49,6 @@ autoplay = true
 bus = &"BGM"
 
 [node name="SettingsPanel" parent="." instance=ExtResource("4_vq33o")]
-anchors_preset = 15
 offset_top = -1072.0
 offset_right = 1920.0
 offset_bottom = 8.0
@@ -59,4 +61,5 @@ script = ExtResource("5_cbacc")
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("6_5kcq5")
 
+[connection signal="pressed" from="Btn_Start" to="Btn_Start" method="_on_pressed"]
 [connection signal="pressed" from="Btn_Settings" to="Btn_Settings" method="_on_pressed"]
