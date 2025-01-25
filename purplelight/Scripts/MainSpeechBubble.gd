@@ -5,6 +5,7 @@ var target_label
 
 var PossibleTextFiles = ["res://TestData1.csv"]
 var TextArray = []
+var AnswerArray:Array[String]
 var day = 1
 var textindex
 
@@ -30,20 +31,21 @@ func _ready() -> void:
 		textindex = 0
 		target_text = TextArray[textindex]
 		update_text_display()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+
 
 func _on_text_changed(newText):
 	update_text_display()
-	
 
 func _on_text_submitted(text: String):
+	AnswerArray.append(input_field.text)
 	input_field.clear()
-	GetNextText()
+	if textindex + 1 < TextArray.size():
+		# Add text to final text
+		GetNextText()
+	else:
+		print(AnswerArray)
+		Gamemanager.GameOver(AnswerArray,$"../Timer".label.text)
 
 func update_text_display():
 	var user_text = input_field.text
@@ -64,5 +66,8 @@ func update_text_display():
 
 func GetNextText():
 	textindex += 1
+	if TextArray[textindex] == "-":
+		AnswerArray.append("\n\r")
+		textindex += 1
 	target_text = TextArray[textindex]
 	target_label.text = target_text

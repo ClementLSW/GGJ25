@@ -27,4 +27,3 @@ Gamemanager="*res://Scripts/gamemanager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
-window/size/borderless=true
