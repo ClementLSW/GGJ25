@@ -1,11 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=12 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
 [ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="2_6mn2o"]
 [ext_resource type="PackedScene" uid="uid://8hibn6tlhgyc" path="res://Scenes/timer.tscn" id="3_uvgru"]
+[ext_resource type="Texture2D" uid="uid://dqbjf6r66hlsa" path="res://Graphics/desk_coffee.png" id="3_ynmrx"]
 [ext_resource type="Script" path="res://Scripts/MainSpeechBubble.gd" id="4_dkayj"]
 [ext_resource type="Texture2D" uid="uid://dxkvdkudhnxw" path="res://Graphics/Bubble_MainThought.png" id="5_7o4xv"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="6_g0g3s"]
+[ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="6_yhhac"]
+[ext_resource type="PackedScene" uid="uid://mvso8bedmxkn" path="res://Prefabs/Bubbles/click_bubble.tscn" id="7_bpm0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0y4d"]
+atlas = ExtResource("6_yhhac")
+region = Rect2(1894.96, 1431.49, 1082.16, 332.614)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hy81k"]
+texture = SubResource("AtlasTexture_a0y4d")
+expand_margin_left = 40.0
+expand_margin_right = 55.0
+region_rect = Rect2(-0.00714183, 0.00519139, 1082.02, 332.009)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wbscx")
@@ -14,27 +27,41 @@ script = ExtResource("1_wbscx")
 position = Vector2(960, 544)
 texture = ExtResource("2_6mn2o")
 
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("3_ynmrx")
+
 [node name="Timer" parent="." instance=ExtResource("3_uvgru")]
 
 [node name="InputField" type="LineEdit" parent="."]
-offset_left = 256.0
-offset_top = 896.0
-offset_right = 1664.0
-offset_bottom = 960.0
+offset_left = 448.0
+offset_top = 832.0
+offset_right = 1472.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_g0g3s")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_hy81k")
+text = "The Quick Brown Fox Jumps Over The Lazy Dog"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
+caret_force_displayed = true
 
 [node name="MainSpeechBubble" type="Node2D" parent="."]
 script = ExtResource("4_dkayj")
 
 [node name="SpeechBubble BG" type="Sprite2D" parent="MainSpeechBubble"]
-position = Vector2(982, 442)
-scale = Vector2(0.892832, 1.02653)
+position = Vector2(976, 344)
+scale = Vector2(1.00452, 1.02653)
 texture = ExtResource("5_7o4xv")
 
 [node name="Content" type="RichTextLabel" parent="MainSpeechBubble"]
-offset_left = 378.0
-offset_top = 238.0
-offset_right = 1587.0
-offset_bottom = 470.0
+offset_left = 344.0
+offset_top = 168.0
+offset_right = 1600.0
+offset_bottom = 352.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("6_g0g3s")
 theme_override_font_sizes/normal_font_size = 64
@@ -42,6 +69,12 @@ text = "The Quick Brown Fox Jumps Over The Lazy Dog"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
+
+[node name="ClickBubble" parent="." instance=ExtResource("7_bpm0v")]
+visible = false
+offset_top = -8.0
+offset_right = 1328.0
+offset_bottom = 1080.0
 
 [connection signal="text_changed" from="InputField" to="MainSpeechBubble" method="_on_text_changed"]
 [connection signal="text_submitted" from="InputField" to="MainSpeechBubble" method="_on_text_submitted"]
