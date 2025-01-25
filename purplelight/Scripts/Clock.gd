@@ -34,5 +34,5 @@ func next_day() ->  void:
 	pass
 	
 func parse_date_to_string() -> String:
-	var dateString : String = str(currentDate["day"]) + str("-") + str(currentDate["month"]) + str("-") + str(currentDate["year"])
+	var dateString : String = str(currentDate["day"]).lpad(2, "0") + str("-") + str(currentDate["month"]).lpad(2, "0") + str("-") + str(currentDate["year"]).lpad(2, "0")
 	return dateString

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5dr8txxcj7p5"]
+[gd_scene load_steps=8 format=3 uid="uid://c5dr8txxcj7p5"]
 
 [ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="1_j4o0h"]
 [ext_resource type="Script" path="res://Scripts/btn_start.gd" id="2_m26qf"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://h7cmiyni163d" path="res://Scenes/settings_panel.tscn" id="4_vq33o"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="5_cbacc"]
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="6_5kcq5"]
-[ext_resource type="Script" path="res://Scripts/Clock.gd" id="8_1t6rd"]
 
 [node name="Main" type="Node2D"]
 
@@ -61,9 +60,6 @@ script = ExtResource("5_cbacc")
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("6_5kcq5")
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("8_1t6rd")
 
 [connection signal="pressed" from="Btn_Start" to="Btn_Start" method="_on_pressed"]
 [connection signal="pressed" from="Btn_Settings" to="Btn_Settings" method="_on_pressed"]
