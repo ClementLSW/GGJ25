@@ -3,7 +3,7 @@ var target_text
 var input_field
 var target_label
 
-var PossibleTextFiles = ["res://TestData1.csv"]
+var PossibleTextFiles = ["res://Data/Day1.csv", "res://Data/Day2.csv", "res://Data/Day3.csv"]
 var TextArray = []
 var AnswerArray:Array[String]
 var day = 1

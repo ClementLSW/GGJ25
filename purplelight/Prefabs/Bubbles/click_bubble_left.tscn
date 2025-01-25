@@ -8,7 +8,7 @@
 atlas = ExtResource("2_ovodc")
 region = Rect2(1484.47, 576.035, 979.005, 740.223)
 
-[node name="ClickBubble" type="Control"]
+[node name="ClickBubbleLeft" type="Control"]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0

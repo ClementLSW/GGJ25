@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=17 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
 [ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="2_6mn2o"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dxkvdkudhnxw" path="res://Graphics/Bubble_MainThought.png" id="5_7o4xv"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="6_g0g3s"]
 [ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="6_yhhac"]
-[ext_resource type="PackedScene" uid="uid://mvso8bedmxkn" path="res://Prefabs/Bubbles/click_bubble.tscn" id="7_bpm0v"]
+[ext_resource type="PackedScene" uid="uid://mvso8bedmxkn" path="res://Prefabs/Bubbles/click_bubble_left.tscn" id="7_bpm0v"]
 [ext_resource type="PackedScene" uid="uid://chg4tw48j8j2q" path="res://Prefabs/Managers/RandomEventManager.tscn" id="10_umf50"]
 [ext_resource type="Script" path="res://Scripts/Weighted_Prefab.gd" id="11_yc11y"]
+[ext_resource type="PackedScene" uid="uid://bsy1brbbob00h" path="res://Prefabs/Bubbles/click_bubble_right.tscn" id="12_n2dxf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0y4d"]
 atlas = ExtResource("6_yhhac")
@@ -25,7 +26,12 @@ region_rect = Rect2(-0.00714183, 0.00519139, 1082.02, 332.009)
 [sub_resource type="Resource" id="Resource_32syv"]
 script = ExtResource("11_yc11y")
 prefabObject = ExtResource("7_bpm0v")
-weight = 0.0
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_4201k"]
+script = ExtResource("11_yc11y")
+prefabObject = ExtResource("12_n2dxf")
+weight = 1.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wbscx")
@@ -77,16 +83,10 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="ClickBubble" parent="." instance=ExtResource("7_bpm0v")]
-visible = false
-offset_top = -8.0
-offset_right = 1328.0
-offset_bottom = 1080.0
-
 [node name="RandomEventManager" parent="." instance=ExtResource("10_umf50")]
-minTimeBetweenSpawns = 15.0
-maxTimeBetweenSpawns = 30.0
-prefabs = Array[ExtResource("11_yc11y")]([SubResource("Resource_32syv")])
+minTimeBetweenSpawns = 10.0
+maxTimeBetweenSpawns = 20.0
+prefabs = Array[ExtResource("11_yc11y")]([SubResource("Resource_32syv"), SubResource("Resource_4201k")])
 
 [connection signal="text_changed" from="InputField" to="MainSpeechBubble" method="_on_text_changed"]
 [connection signal="text_submitted" from="InputField" to="MainSpeechBubble" method="_on_text_submitted"]

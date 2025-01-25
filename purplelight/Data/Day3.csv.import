@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c4p4rf5xd7v7w"
+valid=false
+
+[deps]
+
+source_file="res://Data/Day3.csv"
+
+[params]
+
+compress=true
+delimiter=0

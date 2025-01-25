@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsy1brbbob00h"]
+
+[ext_resource type="Script" path="res://Scripts/click_bubble.gd" id="1_rpr84"]
+[ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="2_0rcof"]
+[ext_resource type="AudioStream" uid="uid://h1dfdvoyku8g" path="res://Audio/general-chatter-in-bar-14816.mp3" id="3_gh784"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpx81"]
+atlas = ExtResource("2_0rcof")
+region = Rect2(2493.57, 576.035, 883.545, 694.561)
+
+[node name="ClickBubbleRight" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1344.0
+offset_top = -1088.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_rpr84")
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1344.0
+offset_top = -1096.0
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+texture_normal = SubResource("AtlasTexture_wpx81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gh784")
+volume_db = 8.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
