@@ -8,6 +8,11 @@ var TextArray = []
 var AnswerArray:Array[String]
 var day = 1
 var textindex
+var excluded_keys = [KEY_ESCAPE, KEY_ENTER, KEY_TAB]
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode not in excluded_keys:  # Only grab focus if not in the exclusion list
+			input_field.grab_focus()
 
 func PopulateTextArray(filePath: String):
 	var file = FileAccess.open(filePath, FileAccess.READ)
