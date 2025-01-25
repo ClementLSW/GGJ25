@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://h7cmiyni163d"]
+[gd_scene load_steps=5 format=3 uid="uid://h7cmiyni163d"]
 
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_g1b28"]
+[ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="1_nkrhu"]
 
-[sub_resource type="Gradient" id="Gradient_6fccp"]
+[sub_resource type="Gradient" id="Gradient_2k6jp"]
 colors = PackedColorArray(1, 0, 0.713726, 1, 0, 0, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dmqrv"]
-gradient = SubResource("Gradient_6fccp")
+gradient = SubResource("Gradient_2k6jp")
 fill_to = Vector2(1, 1)
 
 [node name="CenterContainer" type="CenterContainer"]
@@ -24,6 +25,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nkrhu")
 theme_override_font_sizes/font_size = 64
 text = "SETTINGS
 "
@@ -34,6 +36,7 @@ layout_mode = 2
 
 [node name="Master Volume Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nkrhu")
 theme_override_font_sizes/font_size = 48
 text = "Master Volume"
 
@@ -48,6 +51,7 @@ script = ExtResource("1_g1b28")
 
 [node name="BGM Volume Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nkrhu")
 theme_override_font_sizes/font_size = 48
 text = "BGM Volume"
 
@@ -62,6 +66,7 @@ script = ExtResource("1_g1b28")
 
 [node name="SFX Volume Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nkrhu")
 theme_override_font_sizes/font_size = 48
 text = "SFX Volume"
 
