@@ -36,6 +36,7 @@ func spawn_single_prefab() -> void:
 		else:
 			var distraction = i.prefabObject.instantiate()
 			add_child(distraction)
+			break
 	pass
 
 func start_spawn() -> void:

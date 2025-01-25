@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://cvbs5etui373q"
-valid=false
 
 [deps]
 
+files=["res://Data/Day1. nothing special happening..translation"]
+
 source_file="res://Data/Day1.csv"
+dest_files=["res://Data/Day1. nothing special happening..translation"]
 
 [params]
 
