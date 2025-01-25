@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=15 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
 [ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="2_6mn2o"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="6_g0g3s"]
 [ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="6_yhhac"]
 [ext_resource type="PackedScene" uid="uid://mvso8bedmxkn" path="res://Prefabs/Bubbles/click_bubble.tscn" id="7_bpm0v"]
+[ext_resource type="PackedScene" uid="uid://chg4tw48j8j2q" path="res://Prefabs/Managers/RandomEventManager.tscn" id="10_umf50"]
+[ext_resource type="Script" path="res://Scripts/Weighted_Prefab.gd" id="11_yc11y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0y4d"]
 atlas = ExtResource("6_yhhac")
@@ -19,6 +21,11 @@ texture = SubResource("AtlasTexture_a0y4d")
 expand_margin_left = 40.0
 expand_margin_right = 55.0
 region_rect = Rect2(-0.00714183, 0.00519139, 1082.02, 332.009)
+
+[sub_resource type="Resource" id="Resource_32syv"]
+script = ExtResource("11_yc11y")
+prefabObject = ExtResource("7_bpm0v")
+weight = 0.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wbscx")
@@ -75,6 +82,11 @@ visible = false
 offset_top = -8.0
 offset_right = 1328.0
 offset_bottom = 1080.0
+
+[node name="RandomEventManager" parent="." instance=ExtResource("10_umf50")]
+minTimeBetweenSpawns = 15.0
+maxTimeBetweenSpawns = 30.0
+prefabs = Array[ExtResource("11_yc11y")]([SubResource("Resource_32syv")])
 
 [connection signal="text_changed" from="InputField" to="MainSpeechBubble" method="_on_text_changed"]
 [connection signal="text_submitted" from="InputField" to="MainSpeechBubble" method="_on_text_submitted"]
