@@ -1,5 +1,6 @@
 extends Node
 
+class_name RandomEventManager
 @export var minTimeBetweenSpawns : float
 @export var maxTimeBetweenSpawns : float
 @export var prefabs : Array[WeightedPrefab]
