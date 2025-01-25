@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ccjop73wn8snl"]
+
+[ext_resource type="FontFile" uid="uid://cvid4ags1chph" path="res://Fonts/ComicMono-Bold.ttf" id="1_wcsot"]
+
+[resource]
+default_font = ExtResource("1_wcsot")
+default_font_size = 12

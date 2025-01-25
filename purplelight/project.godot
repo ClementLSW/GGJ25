@@ -12,7 +12,7 @@ config_version=5
 
 config/name="PurpleLight"
 config/version="0.0.1"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/Credits.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,9 +21,10 @@ config/icon="res://icon.svg"
 AudioManager="*res://Scripts/audio_manager.gd"
 SceneSwitcher="*res://Scripts/SceneSwitcher.gd"
 Gamemanager="*res://Scripts/gamemanager.gd"
+Clock="*res://Scripts/Clock.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/resizable=false
+window/stretch/mode="viewport"

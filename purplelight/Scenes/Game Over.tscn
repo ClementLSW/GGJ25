@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhgd2yeefk07b"]
+
+[ext_resource type="Texture2D" uid="uid://b5uj6le3dwfhh" path="res://Graphics/EndScreen.png" id="1_2k7nj"]
+[ext_resource type="Script" path="res://Scripts/GameOverManager.gd" id="2_1hyu0"]
+[ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="2_i8b7a"]
+[ext_resource type="PackedScene" path="res://Prefabs/Managers/clock.tscn" id="3_72fi7"]
+[ext_resource type="FontFile" uid="uid://cvid4ags1chph" path="res://Fonts/ComicMono-Bold.ttf" id="3_q4jsd"]
+[ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="6_l4n11"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="GameOverFrame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_2k7nj")
+
+[node name="Date" type="RichTextLabel" parent="."]
+offset_left = 148.0
+offset_top = 813.0
+offset_right = 370.0
+offset_bottom = 837.0
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_fonts/normal_font = ExtResource("2_i8b7a")
+theme_override_fonts/bold_font = ExtResource("3_q4jsd")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[center][b]00-00-0000[/b][/center]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Publish Date" type="RichTextLabel" parent="."]
+offset_left = 194.0
+offset_top = 798.0
+offset_right = 324.0
+offset_bottom = 811.0
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_fonts/normal_font = ExtResource("2_i8b7a")
+theme_override_fonts/bold_font = ExtResource("3_q4jsd")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "Publish Date:"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Time" type="RichTextLabel" parent="."]
+offset_left = 270.0
+offset_top = 381.0
+offset_right = 613.0
+offset_bottom = 431.0
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_fonts/normal_font = ExtResource("2_i8b7a")
+theme_override_fonts/bold_font = ExtResource("3_q4jsd")
+theme_override_font_sizes/normal_font_size = 54
+theme_override_font_sizes/bold_font_size = 54
+bbcode_enabled = true
+text = "[b]00:00:00[/b]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Time Taken" type="RichTextLabel" parent="."]
+offset_left = 270.0
+offset_top = 351.0
+offset_right = 414.0
+offset_bottom = 375.0
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_fonts/normal_font = ExtResource("2_i8b7a")
+theme_override_fonts/bold_font = ExtResource("3_q4jsd")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Time Taken:"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 696.0
+offset_top = 185.0
+offset_right = 1503.0
+offset_bottom = 897.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollView" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_fonts/normal_font = ExtResource("2_i8b7a")
+theme_override_fonts/bold_font = ExtResource("3_q4jsd")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis pulvinar felis, sed lacinia tellus. Proin orci quam, eleifend et lectus nec, rhoncus condimentum erat. Nam consectetur scelerisque metus sit amet pellentesque. Nunc nec neque faucibus, porta turpis ornare, sagittis arcu. Proin justo sapien, imperdiet eu venenatis nec, elementum quis tortor. Ut urna ex, scelerisque at urna ac, porta sollicitudin libero. Integer in sollicitudin quam. Sed sed purus tincidunt mi maximus pharetra ac sit amet ex. Praesent nisi dui, egestas eu dapibus non, facilisis at tortor. Nunc lobortis sed libero at consequat. Maecenas non dolor et odio varius porta id et metus. In eu risus lectus. Pellentesque ut mattis nisi, quis dictum lacus.
+
+Vestibulum facilisis nec mauris volutpat suscipit. Integer pharetra, lectus in aliquet varius, nisi purus elementum velit, vitae vestibulum sem nunc nec tellus. Sed iaculis congue porttitor. Aenean pellentesque nec felis vel volutpat. Fusce luctus urna eu odio hendrerit, vitae finibus lorem mattis. Pellentesque semper ante tellus, non blandit augue semper non. Nunc ipsum lorem, rhoncus id tortor vitae, volutpat suscipit nisi. Curabitur rutrum, dui at fermentum tempus, libero dolor blandit dui, nec faucibus lorem nibh quis ante. Nam nunc felis, consectetur consectetur mattis nec, aliquet a eros. Fusce cursus ipsum nibh, eget suscipit ex venenatis vitae. Quisque sed semper justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed rhoncus ac odio sit amet efficitur. Nunc rutrum ligula et orci egestas mattis. Vestibulum nec libero quis ex sodales vestibulum nec eget dolor. Mauris eget ipsum massa."
+
+[node name="Game Over Manager" type="Node" parent="." node_paths=PackedStringArray("clock", "dateLabel")]
+script = ExtResource("2_1hyu0")
+clock = NodePath("../Clock")
+dateLabel = NodePath("../Date")
+
+[node name="Clock" parent="." instance=ExtResource("3_72fi7")]
+
+[node name="Publish" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 461.0
+offset_right = 625.0
+offset_bottom = 520.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_l4n11")
+theme_override_colors/font_hover_color = Color(0.333333, 0.356863, 0.635294, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.407843, 0.803922, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_font_sizes/font_size = 24
+text = "Publish"
+flat = true
