@@ -91,7 +91,7 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xim7n")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_abixv")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5afwc")
-placeholder_text = "Type Somthing Here..."
+placeholder_text = "What's on your mind? :)"
 context_menu_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
@@ -189,6 +189,7 @@ script = ExtResource("17_rtpyt")
 
 [node name="SFXSource" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_5gei1")
+volume_db = -5.622
 bus = &"SFX"
 
 [node name="BGMSource" type="AudioStreamPlayer" parent="."]
