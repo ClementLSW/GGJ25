@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5dr8txxcj7p5"]
+[gd_scene load_steps=22 format=3 uid="uid://c5dr8txxcj7p5"]
 
 [ext_resource type="Texture2D" uid="uid://cyj2lvgpsd3pb" path="res://Graphics/background.png" id="1_didlq"]
 [ext_resource type="SpriteFrames" uid="uid://j2vqnkqrni5x" path="res://Animations/Red Bubble Left.tres" id="2_fsnsf"]
@@ -9,6 +9,7 @@
 [ext_resource type="SpriteFrames" uid="uid://0fsrbt6xyb3j" path="res://Animations/Red Bubble Right.tres" id="3_kv1f8"]
 [ext_resource type="Texture2D" uid="uid://bsx0fcyhdl6h6" path="res://Graphics/Button.png" id="4_a171m"]
 [ext_resource type="PackedScene" uid="uid://h7cmiyni163d" path="res://Scenes/settings_panel.tscn" id="4_vq33o"]
+[ext_resource type="Texture2D" uid="uid://b1arpcav3lpup" path="res://Graphics/TitleCard.png" id="4_wr0r5"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="5_cbacc"]
 [ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="5_j6gjq"]
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="6_5kcq5"]
@@ -40,6 +41,11 @@ position = Vector2(1610, 491)
 scale = Vector2(0.52965, 0.52965)
 sprite_frames = ExtResource("3_kv1f8")
 autoplay = "default"
+
+[node name="TitleCard" type="Sprite2D" parent="."]
+position = Vector2(949, 173)
+scale = Vector2(0.602901, 0.602901)
+texture = ExtResource("4_wr0r5")
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -160,35 +166,6 @@ script = ExtResource("6_hq6kh")
 stream = ExtResource("11_fgbgt")
 autoplay = true
 bus = &"BGM"
-
-[node name="Game Title" type="RichTextLabel" parent="."]
-offset_left = 549.0
-offset_top = 133.0
-offset_right = 1355.0
-offset_bottom = 199.0
-theme = ExtResource("5_j6gjq")
-theme_override_colors/default_color = Color(0.627451, 0.635294, 0.737255, 1)
-theme_override_font_sizes/normal_font_size = 72
-theme_override_font_sizes/bold_font_size = 72
-bbcode_enabled = true
-text = "[center][b]Game Name[/b][/center]"
-scroll_active = false
-
-[node name="Team Name" type="RichTextLabel" parent="."]
-offset_left = 850.0
-offset_top = 211.0
-offset_right = 1063.0
-offset_bottom = 250.0
-theme = ExtResource("5_j6gjq")
-theme_override_colors/default_color = Color(0.627451, 0.635294, 0.737255, 1)
-theme_override_fonts/normal_font = ExtResource("14_wwfrt")
-theme_override_fonts/bold_font = ExtResource("15_wjg83")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[center]By Team
-[b]Purple Light[/b][/center]"
-scroll_active = false
 
 [node name="Best Time Title" type="RichTextLabel" parent="."]
 offset_left = 1483.0
