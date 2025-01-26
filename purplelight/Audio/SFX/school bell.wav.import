@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://donpndqf2xpca"
+path="res://.godot/imported/school bell.wav-96b2033cef90c78ff84920aa53c4c449.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/school bell.wav"
+dest_files=["res://.godot/imported/school bell.wav-96b2033cef90c78ff84920aa53c4c449.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

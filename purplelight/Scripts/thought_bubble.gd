@@ -10,12 +10,24 @@ var thoughts = [
 "Ooh, there's a new video",
 "I should probably make those cup noodles soon...",
 "I wonder if they're playing games right now?",
-"My shirt kinda stinks"]
+"My shirt kinda stinks",
+"I really want to watch a Rip n Ship, HariyamaRIPS is live on TikTok now!"
+]
 
 # TODO @JJ if you wanna put in SFX, make sure the indices match.
-var SFX = []
+# thank you
+var SFX = [
+	get_meta("hungry"),
+	get_meta("book"),
+	get_meta("youtube"),
+	get_meta("cup_noodles"),
+	get_meta("gaming"),
+	get_meta("smell")]
+
+var AP
 
 func _ready():
+	AP = $Node
 	$Area2D.input_event.connect(_on_input_event) 
 	RandomizeThought()
 
@@ -39,3 +51,5 @@ func _input(event):
 func RandomizeThought():
 	var i = randi_range(0, thoughts.size()-1)
 	$Label.text = thoughts[i]
+	AP.PlayOneShot(i)
+	

@@ -27,6 +27,7 @@ func PopulateTextArray(day: int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"../BGMSource".PlayBGM()
 	main_speech_bubble = $"../MainSpeechBubble"
 	input_field = $"../MarginContainer/InputField"
 	target_label = $"./PanelContainer/Content"
@@ -57,7 +58,7 @@ func reset():
 	set_allow_typing(true)
 	input_field.clear()
 	AnswerArray = []
-	if Clock.day >= 3:
+	if Clock.day > 3:
 		#End
 		#$"root/GameOver".visible = false
 		Gamemanager.UpdateBestTime(madeMistake)
@@ -65,6 +66,7 @@ func reset():
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		return
 	TextArray = PopulateTextArray(Clock.day)
+	$"../BGMSource".PlayBGM()
 	if TextArray.size() > 0:
 		textindex = 0
 		target_text = TextArray[textindex]

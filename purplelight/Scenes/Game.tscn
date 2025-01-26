@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=31 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
 [ext_resource type="Texture2D" uid="uid://cyj2lvgpsd3pb" path="res://Graphics/background.png" id="2_07o68"]
@@ -13,10 +13,12 @@
 [ext_resource type="Script" path="res://Scripts/Weighted_Prefab.gd" id="11_yc11y"]
 [ext_resource type="PackedScene" uid="uid://drg3xj0v4adpi" path="res://Prefabs/Bubbles/click_bubble_right.tscn" id="12_n2dxf"]
 [ext_resource type="PackedScene" uid="uid://v52vrobrakn4" path="res://Prefabs/Bubbles/thought_bubble 1.tscn" id="13_xodsd"]
-[ext_resource type="PackedScene" uid="uid://bhgd2yeefk07b" path="res://Scenes/GameOver.tscn" id="14_poqh4"]
+[ext_resource type="PackedScene" path="res://Scenes/GameOver.tscn" id="14_poqh4"]
 [ext_resource type="SpriteFrames" uid="uid://dmbfce8emp6sj" path="res://Animations/Typing.tres" id="15_yeak2"]
 [ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="16_73veg"]
 [ext_resource type="Script" path="res://Scripts/DataManager.gd" id="17_rtpyt"]
+[ext_resource type="Script" path="res://Scripts/AudioPlayer.gd" id="18_blfre"]
+[ext_resource type="Script" path="res://Scripts/bgm_source.gd" id="18_sl3y6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xim7n"]
 
@@ -46,6 +48,8 @@ weight = 1.0
 script = ExtResource("11_yc11y")
 prefabObject = ExtResource("13_xodsd")
 weight = 2.0
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_5gei1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wbscx")
@@ -182,6 +186,18 @@ fit_content = true
 
 [node name="DataManager" type="Node" parent="."]
 script = ExtResource("17_rtpyt")
+
+[node name="SFXSource" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_5gei1")
+bus = &"SFX"
+
+[node name="BGMSource" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_5gei1")
+bus = &"BGM"
+script = ExtResource("18_sl3y6")
+
+[node name="AudioPlayer" type="Node" parent="."]
+script = ExtResource("18_blfre")
 
 [connection signal="text_changed" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_submitted"]

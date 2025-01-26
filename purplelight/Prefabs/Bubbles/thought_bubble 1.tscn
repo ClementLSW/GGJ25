@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://v52vrobrakn4"]
+[gd_scene load_steps=7 format=3 uid="uid://v52vrobrakn4"]
 
 [ext_resource type="Script" path="res://Scripts/thought_bubble.gd" id="1_6j1j1"]
 [ext_resource type="SpriteFrames" uid="uid://bmu8q68lb33g6" path="res://Animations/Dark Cloud.tres" id="2_wghps"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="3_xxuj0"]
+[ext_resource type="Script" path="res://Scripts/AudioPlayer.gd" id="4_s0fll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_maupq"]
 size = Vector2(672, 445)
@@ -35,3 +36,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ni4lw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_s0fll")
+
+[node name="SFXSource" type="AudioStreamPlayer" parent="."]

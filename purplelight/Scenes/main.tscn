@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dqbjf6r66hlsa" path="res://Graphics/desk_coffee.png" id="2_iyywf"]
 [ext_resource type="Script" path="res://Scripts/btn_start.gd" id="2_m26qf"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="2_t1nea"]
-[ext_resource type="AudioStream" uid="uid://bh05v85hn3o23" path="res://Audio/uxg_c.leow_wk06.wav" id="2_xldcc"]
 [ext_resource type="SpriteFrames" uid="uid://dmbfce8emp6sj" path="res://Animations/Typing.tres" id="3_18ev0"]
 [ext_resource type="SpriteFrames" uid="uid://0fsrbt6xyb3j" path="res://Animations/Red Bubble Right.tres" id="3_kv1f8"]
 [ext_resource type="Texture2D" uid="uid://bsx0fcyhdl6h6" path="res://Graphics/Button.png" id="4_a171m"]
@@ -14,7 +13,8 @@
 [ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="5_j6gjq"]
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="6_5kcq5"]
 [ext_resource type="Script" path="res://Scripts/Button_Credits.gd" id="6_hq6kh"]
-[ext_resource type="PackedScene" uid="uid://cfqi2vmquy4o" path="res://Scenes/Credits.tscn" id="9_dojxw"]
+[ext_resource type="PackedScene" path="res://Scenes/Credits.tscn" id="9_dojxw"]
+[ext_resource type="AudioStream" uid="uid://cf6pjclxjepp7" path="res://Audio/BGM/Baseline.wav" id="11_fgbgt"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="14_wwfrt"]
 [ext_resource type="FontFile" uid="uid://cvid4ags1chph" path="res://Fonts/ComicMono-Bold.ttf" id="15_wjg83"]
 [ext_resource type="Script" path="res://Scenes/BestTiming.gd" id="18_el7os"]
@@ -157,7 +157,7 @@ flat = true
 script = ExtResource("6_hq6kh")
 
 [node name="MainMenuBGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_xldcc")
+stream = ExtResource("11_fgbgt")
 autoplay = true
 bus = &"BGM"
 
