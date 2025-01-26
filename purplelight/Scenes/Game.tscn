@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=28 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
 [ext_resource type="Texture2D" uid="uid://cyj2lvgpsd3pb" path="res://Graphics/background.png" id="2_07o68"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bhgd2yeefk07b" path="res://Scenes/GameOver.tscn" id="14_poqh4"]
 [ext_resource type="SpriteFrames" uid="uid://dmbfce8emp6sj" path="res://Animations/Typing.tres" id="15_yeak2"]
 [ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="16_73veg"]
+[ext_resource type="Script" path="res://Scripts/DataManager.gd" id="17_rtpyt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xim7n"]
 
@@ -178,6 +179,9 @@ theme_override_font_sizes/bold_font_size = 256
 bbcode_enabled = true
 text = "[center][b]Day X[/b][/center]"
 fit_content = true
+
+[node name="DataManager" type="Node" parent="."]
+script = ExtResource("17_rtpyt")
 
 [connection signal="text_changed" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_submitted"]

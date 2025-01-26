@@ -3,7 +3,6 @@ var target_text
 var input_field
 var target_label
 
-var PossibleTextFiles = ["res://Data/Day1.csv", "res://Data/Day2.csv", "res://Data/Day3.csv"]
 var TextArray = []
 var AnswerArray:Array[String]
 var day_label
@@ -11,24 +10,20 @@ var main_speech_bubble
 var timer
 var madeMistake = false
 var textindex
-var excluded_keys = [KEY_ESCAPE, KEY_ENTER, KEY_TAB]
+var excluded_keys = [KEY_ESCAPE, KEY_TAB]
 var allowTyping : bool = false
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode not in excluded_keys:  # Only grab focus if not in the exclusion list
 			input_field.grab_focus()
 
-func PopulateTextArray(filePath: String):
-	var file = FileAccess.open(filePath, FileAccess.READ)
-	var data = []
-	
-	if file:
-		while !file.eof_reached():
-			var line = file.get_line()
-			if line:
-				data.append(line)
-				
-	return data
+func PopulateTextArray(day: int):
+	if day == 1:
+		return $"../DataManager".Day1Text
+	if day == 2:
+		return $"../DataManager".Day2Text
+	if day == 3:
+		return $"../DataManager".Day3Text
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,7 +46,7 @@ func _ready() -> void:
 	timer.visible = true
 	#END AWAITING
 	input_field.grab_focus()
-	TextArray = PopulateTextArray(PossibleTextFiles[Clock.day-1])
+	TextArray = PopulateTextArray(Clock.day)
 	if TextArray.size() > 0:
 		textindex = 0
 		target_text = TextArray[textindex]
@@ -62,14 +57,14 @@ func reset():
 	set_allow_typing(true)
 	input_field.clear()
 	AnswerArray = []
-	if Clock.day-1 >= PossibleTextFiles.size():
+	if Clock.day >= 3:
 		#End
 		#$"root/GameOver".visible = false
 		Gamemanager.UpdateBestTime(madeMistake)
 		Clock.reset()
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		return
-	TextArray = PopulateTextArray(PossibleTextFiles[Clock.day-1])
+	TextArray = PopulateTextArray(Clock.day)
 	if TextArray.size() > 0:
 		textindex = 0
 		target_text = TextArray[textindex]
