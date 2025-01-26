@@ -1,32 +1,97 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5dr8txxcj7p5"]
+[gd_scene load_steps=21 format=3 uid="uid://c5dr8txxcj7p5"]
 
-[ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="1_j4o0h"]
+[ext_resource type="Texture2D" uid="uid://cyj2lvgpsd3pb" path="res://Graphics/background.png" id="1_didlq"]
+[ext_resource type="SpriteFrames" uid="uid://j2vqnkqrni5x" path="res://Animations/Red Bubble Left.tres" id="2_fsnsf"]
+[ext_resource type="Texture2D" uid="uid://dqbjf6r66hlsa" path="res://Graphics/desk_coffee.png" id="2_iyywf"]
 [ext_resource type="Script" path="res://Scripts/btn_start.gd" id="2_m26qf"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="2_t1nea"]
 [ext_resource type="AudioStream" uid="uid://bh05v85hn3o23" path="res://Audio/uxg_c.leow_wk06.wav" id="2_xldcc"]
+[ext_resource type="SpriteFrames" uid="uid://dmbfce8emp6sj" path="res://Animations/Typing.tres" id="3_18ev0"]
+[ext_resource type="SpriteFrames" uid="uid://0fsrbt6xyb3j" path="res://Animations/Red Bubble Right.tres" id="3_kv1f8"]
+[ext_resource type="Texture2D" uid="uid://bsx0fcyhdl6h6" path="res://Graphics/Button.png" id="4_a171m"]
 [ext_resource type="PackedScene" uid="uid://h7cmiyni163d" path="res://Scenes/settings_panel.tscn" id="4_vq33o"]
 [ext_resource type="Script" path="res://Scripts/InputController.gd" id="5_cbacc"]
+[ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="5_j6gjq"]
 [ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="6_5kcq5"]
+[ext_resource type="Script" path="res://Scripts/Button_Credits.gd" id="6_hq6kh"]
+[ext_resource type="PackedScene" uid="uid://cfqi2vmquy4o" path="res://Scenes/Credits.tscn" id="9_dojxw"]
+[ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="14_wwfrt"]
+[ext_resource type="FontFile" uid="uid://cvid4ags1chph" path="res://Fonts/ComicMono-Bold.ttf" id="15_wjg83"]
+[ext_resource type="Script" path="res://Scenes/BestTiming.gd" id="18_el7os"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfoaa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_npao8"]
 
 [node name="Main" type="Node2D"]
 
 [node name="TitleScreen" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_j4o0h")
+texture = ExtResource("1_didlq")
+
+[node name="UiBubbles" type="AnimatedSprite2D" parent="."]
+position = Vector2(331, 550)
+scale = Vector2(0.52965, 0.52965)
+sprite_frames = ExtResource("2_fsnsf")
+autoplay = "default"
+
+[node name="UiBubbles2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1610, 491)
+scale = Vector2(0.52965, 0.52965)
+sprite_frames = ExtResource("3_kv1f8")
+autoplay = "default"
+
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_iyywf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = ExtResource("3_18ev0")
+autoplay = "default"
+
+[node name="Button" type="Sprite2D" parent="."]
+position = Vector2(640, 952)
+texture = ExtResource("4_a171m")
+
+[node name="Button2" type="Sprite2D" parent="."]
+position = Vector2(960, 952)
+texture = ExtResource("4_a171m")
+
+[node name="Button3" type="Sprite2D" parent="."]
+position = Vector2(1280, 952)
+texture = ExtResource("4_a171m")
 
 [node name="Btn_Start" type="Button" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 832.0
-offset_top = 704.0
-offset_right = 1088.0
-offset_bottom = 768.0
+offset_left = 531.0
+offset_top = 925.0
+offset_right = 749.0
+offset_bottom = 984.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("5_j6gjq")
+theme_override_colors/font_hover_color = Color(0.333333, 0.356863, 0.635294, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.407843, 0.803922, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nfoaa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_npao8")
 action_mode = 0
 text = "Start"
+flat = true
 script = ExtResource("2_m26qf")
 
 [node name="Btn_Settings" type="Button" parent="."]
@@ -34,26 +99,126 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 832.0
-offset_top = 792.0
-offset_right = 1088.0
-offset_bottom = 856.0
+offset_left = 851.0
+offset_top = 926.0
+offset_right = 1069.0
+offset_bottom = 984.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("5_j6gjq")
+theme_override_colors/font_hover_color = Color(0.333333, 0.356863, 0.635294, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.407843, 0.803922, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nfoaa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_npao8")
 text = "Settings"
+flat = true
 script = ExtResource("2_t1nea")
+
+[node name="Btn_Credits" type="Button" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1170.0
+offset_top = 926.0
+offset_right = 1390.0
+offset_bottom = 984.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_j6gjq")
+theme_override_colors/font_hover_color = Color(0.333333, 0.356863, 0.635294, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.407843, 0.803922, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nfoaa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_npao8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_npao8")
+text = "Credits"
+flat = true
+script = ExtResource("6_hq6kh")
 
 [node name="MainMenuBGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_xldcc")
 autoplay = true
 bus = &"BGM"
 
+[node name="Game Title" type="RichTextLabel" parent="."]
+offset_left = 549.0
+offset_top = 133.0
+offset_right = 1355.0
+offset_bottom = 199.0
+theme = ExtResource("5_j6gjq")
+theme_override_colors/default_color = Color(0.627451, 0.635294, 0.737255, 1)
+theme_override_font_sizes/normal_font_size = 72
+theme_override_font_sizes/bold_font_size = 72
+bbcode_enabled = true
+text = "[center][b]Game Name[/b][/center]"
+scroll_active = false
+
+[node name="Team Name" type="RichTextLabel" parent="."]
+offset_left = 850.0
+offset_top = 211.0
+offset_right = 1063.0
+offset_bottom = 250.0
+theme = ExtResource("5_j6gjq")
+theme_override_colors/default_color = Color(0.627451, 0.635294, 0.737255, 1)
+theme_override_fonts/normal_font = ExtResource("14_wwfrt")
+theme_override_fonts/bold_font = ExtResource("15_wjg83")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[center]By Team
+[b]Purple Light[/b][/center]"
+scroll_active = false
+
+[node name="Best Time Title" type="RichTextLabel" parent="."]
+offset_left = 1483.0
+offset_top = 419.0
+offset_right = 1738.0
+offset_bottom = 508.0
+theme_override_fonts/normal_font = ExtResource("14_wwfrt")
+theme_override_fonts/bold_font = ExtResource("15_wjg83")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]No Mistakes Made
+Best Timing[/center]"
+
+[node name="Best Time" type="RichTextLabel" parent="."]
+offset_left = 1483.0
+offset_top = 487.0
+offset_right = 1738.0
+offset_bottom = 576.0
+theme_override_fonts/normal_font = ExtResource("14_wwfrt")
+theme_override_fonts/bold_font = ExtResource("15_wjg83")
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[center][b]00:00[/b][/center]"
+script = ExtResource("18_el7os")
+
 [node name="SettingsPanel" parent="." instance=ExtResource("4_vq33o")]
-offset_top = -1072.0
-offset_right = 1920.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+visible = false
+
+[node name="CreditsPanel" parent="." instance=ExtResource("9_dojxw")]
+visible = false
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("5_cbacc")
@@ -63,3 +228,4 @@ script = ExtResource("6_5kcq5")
 
 [connection signal="pressed" from="Btn_Start" to="Btn_Start" method="_on_pressed"]
 [connection signal="pressed" from="Btn_Settings" to="Btn_Settings" method="_on_pressed"]
+[connection signal="pressed" from="Btn_Credits" to="Btn_Credits" method="_on_pressed"]

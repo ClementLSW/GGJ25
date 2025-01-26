@@ -19,12 +19,12 @@ func _ready() -> void:
 func spawn_loop() -> void:
 	spawnerActive = true
 	while true:
+		var randomTimeBetweenSpawns = random.randf_range(minTimeBetweenSpawns, maxTimeBetweenSpawns)
+		await get_tree().create_timer(randomTimeBetweenSpawns).timeout
 		if haltSpawn:
 			haltSpawn = false
 			spawnerActive = false
 			break
-		var randomTimeBetweenSpawns = random.randf_range(minTimeBetweenSpawns, maxTimeBetweenSpawns)
-		await get_tree().create_timer(randomTimeBetweenSpawns).timeout
 		spawn_single_prefab()
 	pass
 

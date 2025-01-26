@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8hibn6tlhgyc"]
 
 [ext_resource type="Script" path="res://Scripts/timer.gd" id="1_hpjol"]
-[ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="2_wxrhk"]
+[ext_resource type="FontFile" uid="uid://cvid4ags1chph" path="res://Fonts/ComicMono-Bold.ttf" id="2_x73fn"]
 
 [node name="Timer" type="Control"]
 layout_mode = 3
@@ -15,9 +15,10 @@ script = ExtResource("1_hpjol")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 1920.0
-offset_bottom = 152.0
-theme_override_fonts/font = ExtResource("2_wxrhk")
-theme_override_font_sizes/font_size = 40
-text = "Time:"
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.627451, 0.635294, 0.737255, 1)
+theme_override_fonts/font = ExtResource("2_x73fn")
+theme_override_font_sizes/font_size = 48
+text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsy1brbbob00h"]
+[gd_scene load_steps=4 format=3 uid="uid://drg3xj0v4adpi"]
 
 [ext_resource type="Script" path="res://Scripts/click_bubble.gd" id="1_rpr84"]
-[ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="2_0rcof"]
+[ext_resource type="SpriteFrames" uid="uid://j2vqnkqrni5x" path="res://Animations/Red Bubble Left.tres" id="2_vr7dh"]
 [ext_resource type="AudioStream" uid="uid://h1dfdvoyku8g" path="res://Audio/general-chatter-in-bar-14816.mp3" id="3_gh784"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpx81"]
-atlas = ExtResource("2_0rcof")
-region = Rect2(2493.57, 576.035, 883.545, 694.561)
 
 [node name="ClickBubbleRight" type="Control"]
 layout_mode = 3
@@ -24,21 +20,24 @@ script = ExtResource("1_rpr84")
 
 [node name="Button" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1344.0
-offset_top = -1096.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -544.0
+offset_right = 991.0
+offset_bottom = 242.0
+grow_vertical = 2
 action_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
-texture_normal = SubResource("AtlasTexture_wpx81")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button"]
+position = Vector2(499, 399)
+sprite_frames = ExtResource("2_vr7dh")
+autoplay = "default"
+frame_progress = 0.120747
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gh784")

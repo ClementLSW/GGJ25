@@ -1,12 +1,12 @@
 extends Button
 
-var SettingsPanel: Node2D
-var SettingsShown = false
+var CreditsPanel: Node2D
+var CreditsShown = false
 #var TargetTransform: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SettingsPanel = $"../SettingsPanel"
-	SettingsPanel.visible = false
+	CreditsPanel = $"../CreditsPanel"
+	CreditsPanel.visible = false
 	
 	#TargetTransform = SettingsPanel.position
 
@@ -18,18 +18,16 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	ToggleSettingsPanel()
-	
+	self.disabled = CreditsShown == true
+	$"../Btn_Start".disabled = CreditsShown == true
+	$"../Btn_Settings".disabled = CreditsShown == true
 
 func ToggleSettingsPanel():
-	if SettingsShown == false:
-		SettingsPanel.visible = true
+	if CreditsShown == false:
+		CreditsPanel.visible = true
 		#TargetTransform += Vector2(0,1080)
 	else:
-		SettingsPanel.visible = false
+		CreditsPanel.visible = false
 		#TargetTransform += Vector2(0,-1080)
 	
-	SettingsShown = !SettingsShown
-	
-	self.disabled = SettingsShown == true
-	$"../Btn_Start".disabled = SettingsShown == true
-	$"../Btn_Credits".disabled = SettingsShown == true
+	CreditsShown = !CreditsShown

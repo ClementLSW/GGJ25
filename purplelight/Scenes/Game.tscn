@@ -1,32 +1,39 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjx4uhitviqk"]
+[gd_scene load_steps=27 format=3 uid="uid://bjx4uhitviqk"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_wbscx"]
-[ext_resource type="Texture2D" uid="uid://c5ci1h4sy7vl0" path="res://Graphics/BG.svg" id="2_6mn2o"]
+[ext_resource type="Texture2D" uid="uid://cyj2lvgpsd3pb" path="res://Graphics/background.png" id="2_07o68"]
 [ext_resource type="PackedScene" uid="uid://8hibn6tlhgyc" path="res://Scenes/timer.tscn" id="3_uvgru"]
 [ext_resource type="Texture2D" uid="uid://dqbjf6r66hlsa" path="res://Graphics/desk_coffee.png" id="3_ynmrx"]
 [ext_resource type="Script" path="res://Scripts/MainSpeechBubble.gd" id="4_dkayj"]
 [ext_resource type="Texture2D" uid="uid://dxkvdkudhnxw" path="res://Graphics/Bubble_MainThought.png" id="5_7o4xv"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="6_g0g3s"]
 [ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="6_yhhac"]
-[ext_resource type="PackedScene" uid="uid://mvso8bedmxkn" path="res://Prefabs/Bubbles/click_bubble_left.tscn" id="7_bpm0v"]
 [ext_resource type="PackedScene" uid="uid://chg4tw48j8j2q" path="res://Prefabs/Managers/RandomEventManager.tscn" id="10_umf50"]
+[ext_resource type="PackedScene" uid="uid://cmvorxv8gknl7" path="res://Prefabs/Bubbles/click_bubble_left.tscn" id="11_vwi3i"]
 [ext_resource type="Script" path="res://Scripts/Weighted_Prefab.gd" id="11_yc11y"]
-[ext_resource type="PackedScene" uid="uid://bsy1brbbob00h" path="res://Prefabs/Bubbles/click_bubble_right.tscn" id="12_n2dxf"]
-[ext_resource type="PackedScene" uid="uid://0f3xid4npnau" path="res://Prefabs/Bubbles/thought_bubble 1.tscn" id="13_xodsd"]
+[ext_resource type="PackedScene" uid="uid://drg3xj0v4adpi" path="res://Prefabs/Bubbles/click_bubble_right.tscn" id="12_n2dxf"]
+[ext_resource type="PackedScene" uid="uid://v52vrobrakn4" path="res://Prefabs/Bubbles/thought_bubble 1.tscn" id="13_xodsd"]
+[ext_resource type="PackedScene" uid="uid://bhgd2yeefk07b" path="res://Scenes/GameOver.tscn" id="14_poqh4"]
+[ext_resource type="SpriteFrames" uid="uid://dmbfce8emp6sj" path="res://Animations/Typing.tres" id="15_yeak2"]
+[ext_resource type="Theme" uid="uid://ccjop73wn8snl" path="res://Theme/comic_mono_bold.tres" id="16_73veg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0y4d"]
-atlas = ExtResource("6_yhhac")
-region = Rect2(1894.96, 1431.49, 1082.16, 332.614)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xim7n"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hy81k"]
-texture = SubResource("AtlasTexture_a0y4d")
-expand_margin_left = 40.0
-expand_margin_right = 55.0
-region_rect = Rect2(-0.00714183, 0.00519139, 1082.02, 332.009)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abixv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5afwc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kiw4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqjs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tox8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_af1t4"]
 
 [sub_resource type="Resource" id="Resource_32syv"]
 script = ExtResource("11_yc11y")
-prefabObject = ExtResource("7_bpm0v")
+prefabObject = ExtResource("11_vwi3i")
 weight = 1.0
 
 [sub_resource type="Resource" id="Resource_4201k"]
@@ -43,47 +50,96 @@ weight = 2.0
 script = ExtResource("1_wbscx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 544)
-texture = ExtResource("2_6mn2o")
+position = Vector2(960, 540)
+texture = ExtResource("2_07o68")
 
 [node name="Desk" type="Sprite2D" parent="."]
-position = Vector2(960, 544)
+position = Vector2(960, 540)
 texture = ExtResource("3_ynmrx")
 
 [node name="Timer" parent="." instance=ExtResource("3_uvgru")]
 
-[node name="InputField" type="LineEdit" parent="."]
-offset_left = 448.0
-offset_top = 832.0
-offset_right = 1472.0
-offset_bottom = 1080.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Typing Window Sprite" type="Sprite2D" parent="."]
+position = Vector2(960, 960)
+scale = Vector2(0.658209, 0.658209)
+texture = ExtResource("6_yhhac")
+region_enabled = true
+region_rect = Rect2(1893.25, 1429.76, 1084.95, 335.544)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 617.0
+offset_top = 899.0
+offset_right = 1300.0
+offset_bottom = 962.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 0
+
+[node name="InputField" type="LineEdit" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/caret_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_colors/font_placeholder_color = Color(0.627451, 0.635294, 0.737255, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("6_g0g3s")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_hy81k")
-text = "The Quick Brown Fox Jumps Over The Lazy Dog"
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xim7n")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_abixv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5afwc")
+placeholder_text = "Type Somthing Here..."
 context_menu_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+flat = true
 caret_blink = true
 caret_force_displayed = true
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
+offset_left = 617.0
+offset_top = 899.0
+offset_right = 1300.0
+offset_bottom = 1053.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 0
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.631373, 0.639216, 0.737255, 1)
+theme_override_colors/font_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_constants/line_spacing = 21
+theme_override_fonts/font = ExtResource("6_g0g3s")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kiw4w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqjs0")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_tox8r")
+placeholder_text = "Type something here..."
+context_menu_enabled = false
+wrap_mode = 1
+
 [node name="MainSpeechBubble" type="Node2D" parent="."]
+position = Vector2(0, 20)
 script = ExtResource("4_dkayj")
 
 [node name="SpeechBubble BG" type="Sprite2D" parent="MainSpeechBubble"]
-position = Vector2(976, 344)
-scale = Vector2(1.00452, 1.02653)
+position = Vector2(976, 311)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_7o4xv")
 
-[node name="Content" type="RichTextLabel" parent="MainSpeechBubble"]
-offset_left = 344.0
-offset_top = 168.0
-offset_right = 1600.0
-offset_bottom = 352.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+[node name="PanelContainer" type="PanelContainer" parent="MainSpeechBubble"]
+offset_left = 467.0
+offset_top = 171.0
+offset_right = 1488.0
+offset_bottom = 315.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_af1t4")
+
+[node name="Content" type="RichTextLabel" parent="MainSpeechBubble/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.631373, 0.639216, 0.737255, 1)
 theme_override_fonts/normal_font = ExtResource("6_g0g3s")
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 36
 text = "The Quick Brown Fox Jumps Over The Lazy Dog"
 fit_content = true
 scroll_active = false
@@ -94,5 +150,34 @@ minTimeBetweenSpawns = 10.0
 maxTimeBetweenSpawns = 20.0
 prefabs = Array[ExtResource("11_yc11y")]([SubResource("Resource_32syv"), SubResource("Resource_4201k"), SubResource("Resource_g8u6e")])
 
-[connection signal="text_changed" from="InputField" to="MainSpeechBubble" method="_on_text_changed"]
-[connection signal="text_submitted" from="InputField" to="MainSpeechBubble" method="_on_text_submitted"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = ExtResource("15_yeak2")
+autoplay = "default"
+frame_progress = 0.853474
+
+[node name="GameOver" parent="." instance=ExtResource("14_poqh4")]
+visible = false
+
+[node name="DayLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 390.0
+offset_right = 1920.0
+offset_bottom = 690.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_73veg")
+theme_override_colors/default_color = Color(0.247059, 0.262745, 0.501961, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/bold_font_size = 256
+bbcode_enabled = true
+text = "[center][b]Day X[/b][/center]"
+fit_content = true
+
+[connection signal="text_changed" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/InputField" to="MainSpeechBubble" method="_on_text_submitted"]

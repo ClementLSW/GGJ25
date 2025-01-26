@@ -1,22 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://0f3xid4npnau"]
+[gd_scene load_steps=6 format=3 uid="uid://v52vrobrakn4"]
 
 [ext_resource type="Script" path="res://Scripts/thought_bubble.gd" id="1_6j1j1"]
-[ext_resource type="Texture2D" uid="uid://debvbjh2ej3th" path="res://Graphics/UI Bubbles.png" id="2_maf14"]
+[ext_resource type="SpriteFrames" uid="uid://bmu8q68lb33g6" path="res://Animations/Dark Cloud.tres" id="2_wghps"]
 [ext_resource type="FontFile" uid="uid://da6e1h5sqwp1d" path="res://Fonts/ComicMono.ttf" id="3_xxuj0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3tpt"]
-atlas = ExtResource("2_maf14")
-region = Rect2(40.5487, 1101.34, 704.146, 448.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_maupq"]
 size = Vector2(672, 445)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni4lw"]
+
 [node name="Thought Bubble 1" type="Node2D"]
 script = ExtResource("1_6j1j1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Dark Cloud Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1272, 368)
-texture = SubResource("AtlasTexture_p3tpt")
+sprite_frames = ExtResource("2_wghps")
+autoplay = "default"
+frame_progress = 0.0220026
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -31,6 +31,7 @@ offset_right = 1472.0
 offset_bottom = 517.0
 theme_override_fonts/font = ExtResource("3_xxuj0")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ni4lw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

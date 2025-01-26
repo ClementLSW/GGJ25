@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cmpoj74ril62o"
+
+[deps]
+
+files=["res://Data/Day1 - Backup. nothing special happening..translation"]
+
+source_file="res://Data/Day1 - Backup.csv"
+dest_files=["res://Data/Day1 - Backup. nothing special happening..translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -14,8 +14,15 @@ func _process(delta: float) -> void:
 	label.text = FormatTime(time)
 	pass
 
+func GetRoundTime() -> int:
+	return int(time)%60
+
 func FormatTime(t_sec: float) -> String:
 	var minutes = int(t_sec)/60
 	var seconds = int(t_sec)%60
 	
-	return "Time: %02d:%02d" % [minutes, seconds]
+	return "%02d:%02d" % [minutes, seconds]
+	
+func resetTimer():
+	time = 0
+	pass

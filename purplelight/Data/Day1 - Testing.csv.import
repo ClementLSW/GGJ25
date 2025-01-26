@@ -2,12 +2,12 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://cvbs5etui373q"
+uid="uid://euu0g4y8ior0"
 valid=false
 
 [deps]
 
-source_file="res://Data/Day1.csv"
+source_file="res://Data/Day1 - Testing.csv"
 
 [params]
 

@@ -5,11 +5,11 @@ var dragging = false
 var offset = Vector2.ZERO
 
 var thoughts = [
-"Ahh those chips would taste good right now",
+"Ahh those chips would taste so good right now",
 "I wanna read a book SO bad",
-"Ooh, X released a new video",
-"I should probably make those cup noodle soon...",
-"I wonder if their playing games right now?",
+"Ooh, there's a new video",
+"I should probably make those cup noodles soon...",
+"I wonder if they're playing games right now?",
 "My shirt kinda stinks"]
 
 # TODO @JJ if you wanna put in SFX, make sure the indices match.
